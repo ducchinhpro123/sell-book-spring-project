@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Create Book</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Seaweed+Script&amp;display=swap">
+    <link rel="stylesheet" href="/assets/css/best-carousel-slide.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider-carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/Navbar-Centered-Links-icons.css">
+</head>
+
+<body>
+<section>
+    <header th:replace="~{fragments/header}">
+
+    </header>
+</section>
+<div class="container">
+    <h1>Create a book</h1>
+    <hr>
+    <form th:object="${book}" method="post" th:action="@{/create-book}" class="row" enctype="multipart/form-data">
+        <div class="col-md-6 mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Enter Title">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="author" class="form-label">Author</label>
+            <select class="form-select" id="author" th:field="*{author}">
+                <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" id="category" th:field="*{category}">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="stock" th:field="*{stock}" placeholder="Enter Stock">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Enter Price">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Image</label>
+            <input type="file" class="form-control" th:field="*{image}" placeholder="Upload image">
+        </div>
+        <div class="col-12 mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" th:field="*{description}" rows="3" placeholder="Enter Description"></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Create Book</button>
+        </div>
+    </form>
+</div>
+
+
+<footer th:replace="~{fragments/footer}"></footer>
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/bs-init.js"></script>
+</body>
+
+</html>

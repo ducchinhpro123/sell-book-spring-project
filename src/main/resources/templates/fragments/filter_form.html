@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="col-4 col-xl-3 col-xxl-3" th:fragment="filterFormEntry (bookCountByCategory, bookCountByAuthor)">
+    <p style="padding-bottom: 0px;margin-bottom: 3px;font-size: 21px;"><strong>Categories</strong></p>
+    <hr style="margin-top: 1px;margin-bottom: 26px;">
+
+    <form id="filter-form" th:action="@{/shop/filter}" method="get">
+        <div th:each="entry : ${bookCountByCategory}">
+            <label>
+                <input type="checkbox" th:id="${entry.key.name}" th:value="${entry.key.name}"
+                       name="categoryNames">
+            </label>
+            <label th:text="${entry.key.name} + ' (' + ${entry.value} + ')' ">
+
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Filter</button>
+    </form>
+    <div style="margin-top: 27px;">
+        <p style="padding-bottom: 0px;margin-bottom: 3px;font-size: 21px;"><strong>Price</strong></p>
+        <hr style="margin-top: 1px;margin-bottom: 26px;">
+        <input class="form-range" type="range">
+        <p> Range : $16 - $815&nbsp;&nbsp;</p>
+    </div>
+    <p style="padding-bottom: 0px;margin-bottom: 3px;font-size: 21px;"><strong>Authors</strong></p>
+    <hr style="margin-top: 1px;margin-bottom: 26px;">
+
+    <form th:action="@{/shop/filter/books/authors}" method="get">
+        <div th:each="entry : ${bookCountByAuthor}">
+            <label>
+                <input type="checkbox" th:id="${entry.key.name}" th:value="${entry.key.name}"
+                       name="authorNames">
+            </label>
+            <label th:text="${entry.key.name} + ' (' + ${entry.value} + ')' ">
+
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Filter</button>
+    </form>
+</div>
+</body>
+</html>

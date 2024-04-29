@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Seaweed+Script&amp;display=swap">
+    <link rel="stylesheet" href="/assets/css/best-carousel-slide.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider-carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/Navbar-Centered-Links-icons.css">
+</head>
+
+<body>
+<section>
+    <header th:replace="~{fragments/header}">
+
+    </header>
+</section>
+
+<div class="container">
+    <h3 class="text-dark mb-4">Profile</h3>
+    <div class="card shadow mb-3">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">User Settings</p>
+        </div>
+        <div class="card-body">
+            <form method="post" th:action="@{/user-change-post}" enctype="multipart/form-data" th:object="${userDto}">
+                <input type="hidden" th:field="*{id}" name="id">
+                <div class="col-sm-4 col-md-4 col-lg-3 col-xl-2 col-xxl-2"
+                     style="display: inline;text-align: center;margin-bottom: 25px;"><img
+                        th:src="@{'/images/user_avatar/'  + ${user.image}}"
+                        class="rounded-circle mb-3 mt-4 img-fluid"
+                        style="display: inline;max-height: 110px;"><br>
+                    <input type="file" name="image" th:field="*{image}" placeholder="Change avatar">
+                </div>
+                <br>
+                <br>
+                <div class="row mt-3" style="margin-bottom: 25px;text-align: left;">
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label"><strong>Id</strong></label>
+                            <input readonly th:value="${user.id}" class="form-control"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label" for="first_name"><strong>First Name</strong></label>
+                            <input th:field="*{firstName}" class="form-control" id="first_name" type="text"
+                                   placeholder="John" name="first_name" required=""
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last
+                            Name</strong></label><input th:field="*{lastName}" id="last_name" class="form-control"
+                                                        type="text" placeholder="Doe"
+                                                        name="last_name" required=""></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3"><label class="form-label" for="address"><strong>Address</strong></label><input
+                                th:field="*{address}" class="form-control" type="text" id="address"
+                                placeholder="Sunset Blvd, 38" name="address"></div>
+                    </div>
+                    <div class="col">
+                        <p id="emailErrorMsg" class="text-danger" style="display:none;"></p>
+                        <p id="passwordErrorMsg" class="text-danger" style="display:none;"></p>
+                    </div>
+                    <div class="col-md-12" style="text-align: right;margin-top: 5px;">
+                        <button class="btn btn-primary btn-sm" id="submitBtn" type="submit">Save Settings</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{fragments/footer}"></footer>
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/bs-init.js"></script>
+<script src="https://geodata.solutions/includes/countrystate.js"></script>
+
+</body>
+
+</html>
+
+

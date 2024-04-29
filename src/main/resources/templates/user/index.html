@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Seaweed+Script&amp;display=swap"
+    />
+    <link rel="stylesheet" href="/assets/css/best-carousel-slide.css"/>
+    <link
+            rel="stylesheet"
+            href="/assets/css/MUSA_carousel-product-cart-slider-carousel-product-cart-slider.css"
+    />
+    <link
+            rel="stylesheet"
+            href="/assets/css/MUSA_carousel-product-cart-slider.css"
+    />
+    <link rel="stylesheet" href="/assets/css/Navbar-Centered-Links-icons.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<section>
+    <header th:replace="~{fragments/header}"></header>
+</section>
+
+<section th:replace="~{fragments/headerFragment :: headerFragment ('My Account')}">
+
+</section>
+
+<div class="container" style="margin-top: 60px">
+    <div class="row">
+        <div class="col-md-4"
+             style="
+            padding-top: 19px;
+            padding-bottom: 19px;
+            padding-left: 19px;
+            padding-right: 19px;
+            border: 0.1px solid var(--bs-dark-border-subtle);
+          ">
+            <p class="small">Dashboard</p>
+            <hr/>
+            <p class="small">Orders</p>
+            <hr/>
+            <p class="small">Downloads</p>
+            <hr/>
+            <p class="small">Addresses</p>
+            <hr/>
+            <p class="small">Account details</p>
+            <hr/>
+            <p class="small">Logout</p>
+        </div>
+        <div class="col-md-6" style="padding: 19px">
+            <p>
+                 Hello <span th:text="${user.firstName} + ' ' + ${user.lastName}" style="font-family:  Merriweather, serif;"></span>
+                (not <span th:text="${user.firstName} + ' ' + ${user.lastName}" style="font-family:  Merriweather, serif;"></span>?
+                <a href="/logout">Log out</a>)<br/><br/>From your
+                account dashboard you can view your recent orders, manage your
+                shipping and billing addresses, and edit your password and account
+                details.
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/footer}"></footer>
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/bs-init.js"></script>
+<script src="https://geodata.solutions/includes/countrystate.js"></script>
+</body>
+</html>

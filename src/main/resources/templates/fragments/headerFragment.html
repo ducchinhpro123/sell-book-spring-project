@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<body>
+    <section th:fragment="headerFragment (headerText)">
+        <div class="col-xxl-12" style="position: relative">
+            <div class="d-xxl-flex justify-content-xxl-center align-items-xxl-center"
+                 th:style="'height: 300px; background-image: url(' + @{/images/Breadcumd.jpg} + '); background-size: cover;'">
+                <p style="
+                  font-weight: bold;
+                  text-align: center;
+                  font-size: 42px;
+                  font-family: Merriweather, serif;
+                " th:text="${headerText}">My Account</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Seaweed+Script&amp;display=swap">
+    <link rel="stylesheet" href="/assets/css/best-carousel-slide.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider-carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/Navbar-Centered-Links-icons.css">
+</head>
+
+<body>
+<section>
+    <header th:replace="~{fragments/header}">
+
+    </header>
+</section>
+
+<div class="container mt-3">
+    <h2>List Authors</h2>
+    <hr>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Bio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="author : ${authors}">
+            <td >
+                <a th:href="@{/books/author/{authorId}(authorId=${author.id})}" th:text="${author.name}"></a>
+            </td>
+            <td th:text="${author.bio}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<footer th:replace="~{fragments/footer}"></footer>
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/bs-init.js"></script>
+</body>
+
+</html>

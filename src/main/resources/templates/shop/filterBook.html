@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/Search-Input-responsive.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Seaweed+Script&amp;display=swap">
+    <link rel="stylesheet" href="/assets/css/best-carousel-slide.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider-carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/MUSA_carousel-product-cart-slider.css">
+    <link rel="stylesheet" href="/assets/css/Navbar-Centered-Links-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body style="width: 1550px">
+<section style="width: 1550px">
+    <header th:replace="~{fragments/header}">
+
+    </header>
+</section>
+<section th:replace="~{fragments/headerFragment :: headerFragment ('Shop Now')}" style="width: 1550px"></section>
+
+
+<section style="margin-top: 52px;padding-left: 15px;padding-right: 15px;width: 100%">
+    <div class="row">
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-3 d-flex justify-content-start align-items-end">
+            <div class="float-start float-md-end mt-md-0 search-area"><i
+                    class="fas fa-search float-start search-icon"></i><input class="float-start custom-search-input"
+                                                                             type="search"
+                                                                             placeholder="Type to filter by address">
+            </div>
+        </div>
+        <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-9"
+             style="border-bottom: 1.5px solid var(&#45;&#45;bs-secondary-color);padding-left: 0px;padding-right: 0px;">
+            <div class="d-flex align-items-xxl-center">
+                <div class="col-xxl-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-grid-fill" style="margin-right: 6px;">
+                        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5z"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-grid-3x3-gap-fill" style="margin-right: 6px;">
+                        <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"></path>
+                    </svg>
+                </div>
+                <div class="col-11 d-flex justify-content-end">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
+                                type="button" style="margin-right: 6px;">Dropdown
+                        </button>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a
+                                class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third
+                            Item</a></div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
+                                type="button">Default Sorting&nbsp;
+                        </button>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a
+                                class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third
+                            Item</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex" style="margin-top: 20px;">
+        <div class="col-4 col-xl-3 col-xxl-3">
+            <p style="padding-bottom: 0px;margin-bottom: 3px;font-size: 21px;"><strong>Categories</strong></p>
+            <hr style="margin-top: 1px;margin-bottom: 26px;">
+            <div th:each="entry : ${bookCountByCategory}">
+                <p class="text-black-50" style="margin-bottom: 5px;"
+                   th:text="${entry.key.name} + ' (' + ${entry.value} + ')' ">Business (3)</p>
+
+            </div>
+            <div style="margin-top: 27px;">
+                <p style="padding-bottom: 0px;margin-bottom: 3px;font-size: 21px;"><strong>Price</strong></p>
+                <hr style="margin-top: 1px;margin-bottom: 26px;">
+                <input class="form-range" type="range">
+                <p> Range : $16 - $815&nbsp;&nbsp;</p>
+            </div>
+            <p style="padding-bottom: 0px;margin-bottom: 3px;font-size: 21px;"><strong>Authors</strong></p>
+            <hr style="margin-top: 1px;margin-bottom: 26px;">
+            <div th:each="entry : ${bookCountByAuthor}">
+                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                        class="form-check-label" for="formCheck-1"
+                        th:text="${entry.key.name} + ' (' + ${entry.value} + ')'">Anna Hillton(3)</label></div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row row-cols-4">
+                <div class="col" th:each="book : ${books}">
+                    <img class="img-fluid" th:src="@{'/images/' + ${book.image}}" style="box-shadow: 0px 0px 7px;">
+                    <a th:href="@{/detail/{id} (id=${book.id})}" class="text-decoration-none text-black"
+                       style="margin-top: 10px;font-weight: bold;font-size: 19px; font-family: Merriweather, serif;"
+                       th:text="${book.title}">100 Selected
+                        Poems</a>
+                    <p><em>by </em><span th:text="${book.author}"></span> Sabela Hupter</p>
+                    <p><span style="text-decoration: line-through;">$89.00 </span> <span th:text="${book.price}"></span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer th:replace="~{fragments/footer}" style="width: 100%"></footer>
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/bs-init.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.add-to-cart').click(function () {
+            var bookId = $(this).data('book-id');
+            var quantity = 1;
+
+            $.ajax({
+                url: '/cart/add-to-cart',
+                type: 'POST',
+                data: {
+                    bookId: bookId,
+                    quantity: quantity
+                },
+                success: function (response) {
+                    alert('Book added to cart');
+                },
+                error: function (xhr, status, error) {
+                    alert("Error adding book to cart: " + xhr.responseText);
+                }
+            });
+        })
+    })
+</script>
+</body>
+
+</html>

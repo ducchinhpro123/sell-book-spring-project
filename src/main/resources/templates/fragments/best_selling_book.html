@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet">
+
+<section th:fragment="best_selling_book (bestSellingBooks)">
+    <div class="container" style="margin-top: 91px;">
+        <div class="row" th:each="book : ${bestSellingBooks}">
+            <div class="col-md-6 col-xxl-5">
+                <p style="color: #F86C71;">BEST SELLING BOOK</p>
+                <h1 style="font-weight: bold;  font-family: 'Antic Didone', serif;" th:text="${book.title}">One Hundred Years of Solitude</h1>
+                <p class="text-black-50">by Gabriel Garcia Marquez</p>
+                <p style="font-size: 29px;color: #F86C71;  font-family: 'Antic Didone', serif" th:text="'$' + ${book.price}">$16.5</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/>tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim <br/>veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea <br/>commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate <br/>velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <button class="btn" type="button" style="color: var(--bs-body-bg);background: #F86C71;">Buy now</button>
+            </div>
+            <div class="col-md-6"><img class="img-fluid" th:src="@{'/images/' + ${book.image}}"/></div>
+        </div>
+    </div>
+</section>
+
+</body>

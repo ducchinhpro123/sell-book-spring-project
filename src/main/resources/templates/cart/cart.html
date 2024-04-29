@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Cart</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Seaweed+Script&amp;display=swap"
+    />
+    <link rel="stylesheet" href="/assets/css/best-carousel-slide.css"/>
+    <link
+            rel="stylesheet"
+            href="/assets/css/MUSA_carousel-product-cart-slider-carousel-product-cart-slider.css"
+    />
+    <link
+            rel="stylesheet"
+            href="/assets/css/MUSA_carousel-product-cart-slider.css"
+    />
+    <link rel="stylesheet" href="/assets/css/Navbar-Centered-Links-icons.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+
+</head>
+
+<body>
+<section>
+    <header th:replace="~{fragments/header}"></header>
+</section>
+
+<section th:replace="~{fragments/headerFragment :: headerFragment ('Cart')}">
+
+</section>
+<section style="margin-top: 66px;">
+    <div class="container mx-auto" style="margin-left: 5px;margin-right: 5px;padding-left: 0px;padding-right: 0px;">
+        <div th:if="${message}" th:class="${'alert ' + alertClass}" role="alert" th:text="${message}"></div>
+        <div class="row">
+            <div class="col-md-6 col-xxl-8">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th style="background: var(--bs-highlight-bg);border-style: none;"></th>
+                            <th style="background: var(--bs-highlight-bg);border-style: none;"></th>
+                            <th style="background: var(--bs-highlight-bg);border-style: none;font-family: Merriweather, serif;">
+                                BOOK
+                            </th>
+                            <th style="background: var(--bs-highlight-bg);border-style: none;font-family: Merriweather, serif;">
+                                PRICE
+                            </th>
+                            <th style="background: var(--bs-highlight-bg);border-style: none;font-family: Merriweather, serif;">
+                                QUANTITY
+                            </th>
+                            <th style="background: var(--bs-highlight-bg);border-style: none;font-family: Merriweather, serif;">
+                                SUBTOTAL
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="cartitem : ${cartItemList}">
+                            <td style="text-align: center; vertical-align: middle;">
+                                <a th:href="@{/cart/delete (cartItemId=${cartitem.id})}"
+                                   onclick="confirm('Are you sure?')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                         viewBox="0 0 16 16" class="bi bi-x-circle-fill"
+                                         style="font-size: 30px;color: var(--bs-form-invalid-border-color);">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"></path>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td style="text-align: center; vertical-align: middle;"><img
+                                    th:src="@{'/images/' + ${cartitem.book.image}}"
+                                    style="width: 100px;"></td>
+                            <td style="text-align: start;      vertical-align: middle;font-family: Merriweather, serif;"
+                                th:text="${cartitem.book.title}">This is real
+                            </td>
+                            <td class="fw-bold"
+                                style="text-align: start;      vertical-align: middle;   font-family: 'Antic Didone', serif;"
+                                th:text="'$' + ${cartitem.book.price}">$999
+                            </td>
+                            <td style="text-align: start;      vertical-align: middle;">
+                                <input type="number" th:value="${cartitem.quantity}" class="form-control"
+                                       style="width: 136px;">
+                            </td>
+                            <td class="fw-bold"
+                                style="text-align: start;      vertical-align: middle;  font-family: 'Antic Didone', serif;"
+                                th:text="'$' + (${cartitem.book.price} * ${cartitem.quantity})">$999
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6 col-xxl-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center" colspan="2"
+                                style="background: var(--bs-highlight-bg);font-family: Merriweather, serif;">CART
+                                TOTALS
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="border-style: none;">Subtotal</td>
+                            <td style="border-style: none;  font-family: 'Antic Didone', serif;"
+                                th:text="'$' + ${totalPrice}" class="fw-bold">$287.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-style: none;">Shipping</td>
+                            <td style="border-style: none;">
+                                <div class="form-check"><input class="form-check-input" type="checkbox"
+                                                               id="formCheck-1"><label class="form-check-label"
+                                                                                       for="formCheck-1">Free
+                                    shipping</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox"
+                                                               id="formCheck-2"><label class="form-check-label"
+                                                                                       for="formCheck-2">Flat
+                                    rate</label></div>
+                                <p style="margin-top: 11px;margin-bottom: 6px;">Shipping to <strong>Vietnam</strong>.&nbsp;
+                                    &nbsp; &nbsp;</p>
+                                <p style="border-style: none;"><a
+                                        href="https://wpbingosite.com/wordpress/bootin/cart/#">Change address</a></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-style: none;  vertical-align: middle;">Total</td>
+                            <td style="border-style: none;font-family: 'Antic Didone', serif;" class="fw-bold">
+                                <p style="margin-top: 11px;margin-bottom: 6px;">$999</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="~{fragments/footer}"></footer>
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/bs-init.js"></script>
+<script src="https://geodata.solutions/includes/countrystate.js"></script>
+</body>
+</html>
