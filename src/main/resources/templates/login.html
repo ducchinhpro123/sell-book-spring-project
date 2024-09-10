@@ -16,6 +16,7 @@
         body {
             background-color: #f8f9fa;
         }
+
         .login-container {
             max-width: 400px;
             margin: 100px auto;
@@ -28,37 +29,44 @@
 </head>
 
 <body>
-<section>
-    <header th:replace="~{fragments/header}">
+    <section>
+        <header th:replace="~{fragments/header}">
 
-    </header>
-</section>
+        </header>
+    </section>
 
-<div class="container">
-    <div class="login-container">
-        <h2 class="text-center mb-4">Login</h2>
-        <form method="post" action="/login">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="username">
+    <div class="container">
+        <div class="login-container">
+            <h2 class="text-center mb-4">Login</h2>
+            <form method="post" action="/login">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="username">
+                </div>
+                <div class="form-group mt-1">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Enter password">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="#" class="text-decoration-none">Forgot Password?</a>
             </div>
-            <div class="form-group mt-1">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+
+            <div class="text-center mt-3">
+                <a href="/register" class="text-decoration-none">Register</a>
             </div>
-            <br>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-        </form>
-        <div class="text-center mt-3">
-            <a href="#" class="text-decoration-none">Forgot Password?</a>
+
+
         </div>
     </div>
-</div>
 
-<footer th:replace="~{fragments/footer}"></footer>
+    <footer th:replace="~{fragments/footer}"></footer>
 
-<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="/assets/js/bs-init.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
 </body>
 
 </html>

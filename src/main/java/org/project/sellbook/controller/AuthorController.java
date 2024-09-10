@@ -2,6 +2,7 @@ package org.project.sellbook.controller;
 
 import org.project.sellbook.model.Author;
 import org.project.sellbook.repository.AuthorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ public class AuthorController {
 
     private final AuthorRepository authorRepository;
 
+    @Autowired
     public AuthorController(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }

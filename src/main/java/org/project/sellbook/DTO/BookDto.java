@@ -50,5 +50,78 @@ public class BookDto {
     @OneToMany(mappedBy = "book")
     private Set<Order> orders = new LinkedHashSet<>();
 
+   	public Integer getId() {
+   		return id;
+   	}
+   
+   	public void setId(Integer id) {
+   		this.id = id;
+   	}
+   
+   	public String getTitle() {
+   		return title;
+   	}
+   
+   	public void setTitle(String title) {
+   		this.title = title;
+   	}
+   
+   	public Author getAuthor() {
+   		return author;
+   	}
+   
+   	public void setAuthor(Author author) {
+   		this.author = author;
+   	}
+   
+   	public Category getCategory() {
+   		return category;
+   	}
+   
+   	public void setCategory(Category category) {
+   		this.category = category;
+   	}
+   
+   	public BigDecimal getPrice() {
+   		return price;
+   	}
+   
+   	public void setPrice(BigDecimal price) {
+   		this.price = price;
+   	}
+   
+   	public String getDescription() {
+   		return description;
+   	}
+   
+   	public void setDescription(String description) {
+   		this.description = description;
+   	}
+   
+   	public MultipartFile getImage() {
+   		return image;
+   	}
+   
+   	public void setImage(MultipartFile image) {
+   		this.image = image;
+   	}
+   
+   	public Integer getStock() {
+   		return stock;
+   	}
+   
+   	public void setStock(Integer stock) {
+   		this.stock = stock;
+   	}
+   
+   	public Set<Order> getOrders() {
+   		return orders;
+   	}
+   
+   	public void setOrders(Set<Order> orders) {
+   		this.orders = orders;
+   	}
+
+
 
 }

@@ -18,4 +18,19 @@ public class BestSellingBook {
     @JoinColumn(name = "book_id")
     private Book book;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 }

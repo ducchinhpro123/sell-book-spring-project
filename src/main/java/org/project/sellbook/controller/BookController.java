@@ -1,6 +1,5 @@
 package org.project.sellbook.controller;
 
-
 import org.project.sellbook.model.Author;
 import org.project.sellbook.model.Book;
 import org.project.sellbook.DTO.BookDto;
@@ -32,7 +31,7 @@ public class BookController {
     private final AuthorRepository authorRepository;
 
     public BookController(BookService bookService, BookRepository bookRepository,
-                          CategoryRepository categoryRepository, AuthorRepository authorRepository) {
+            CategoryRepository categoryRepository, AuthorRepository authorRepository) {
         this.bookService = bookService;
         this.bookRepository = bookRepository;
         this.categoryRepository = categoryRepository;
@@ -45,7 +44,6 @@ public class BookController {
         model.addAttribute("books", books);
         return "product";
     }
-
 
     // View book detail
     @GetMapping("/detail/{id}")
@@ -66,8 +64,8 @@ public class BookController {
 
     @GetMapping("/books/author/{authorId}")
     private String filterBookByAuthor(@PathVariable("authorId") Integer authorId, Model model) {
-        Author author = authorRepository.findById(authorId).orElseThrow(() ->
-                new IllegalArgumentException("Invalid author Id" + authorId));
+        Author author = authorRepository.findById(authorId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid author Id" + authorId));
         List<Book> books = bookRepository.findByAuthor(author);
         model.addAttribute("author", author);
         model.addAttribute("books", books);
@@ -114,7 +112,6 @@ public class BookController {
         bookRepository.save(book);
         return "redirect:/home";
     }
-
 
     @GetMapping("/shop")
     public String shop(Model model) {
