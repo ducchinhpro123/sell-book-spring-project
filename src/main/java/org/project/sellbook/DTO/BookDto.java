@@ -16,8 +16,6 @@ import java.util.Set;
 @Getter
 @Setter
 public class BookDto {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

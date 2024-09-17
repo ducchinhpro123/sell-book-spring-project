@@ -24,7 +24,6 @@ import java.util.*;
 
 @Controller
 public class BookController {
-
     private final BookService bookService;
     private final BookRepository bookRepository;
     private final CategoryRepository categoryRepository;
@@ -111,6 +110,14 @@ public class BookController {
 
         bookRepository.save(book);
         return "redirect:/home";
+    }
+
+    @PostMapping("/search-books")
+    public String searchBooksByTitle(@RequestParam("keyword") String keyWord, Model model) {
+        List<Book> books = bookRepository.findBookByTitle(keyWord);
+
+        model.addAttribute("books", books);
+        return "index";
     }
 
     @GetMapping("/shop")

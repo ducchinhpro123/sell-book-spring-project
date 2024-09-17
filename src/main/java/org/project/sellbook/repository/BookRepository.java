@@ -1,6 +1,5 @@
 package org.project.sellbook.repository;
 
-
 import org.project.sellbook.model.Author;
 import org.project.sellbook.model.Book;
 import org.project.sellbook.model.Category;
@@ -25,4 +24,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> findByCategoryIn(List<Category> categories);
 
     List<Book> findByAuthorIn(List<Author> authors);
+
+    @Query("SELECT b FROM Book b where b.title like %:title%")
+    List<Book> findBookByTitle(String title);
 }

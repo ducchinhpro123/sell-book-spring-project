@@ -11,10 +11,8 @@ import java.util.List;
 
 @Controller
 public class AuthorController {
-
     private final AuthorRepository authorRepository;
 
-    @Autowired
     public AuthorController(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
